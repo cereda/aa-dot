@@ -158,7 +158,7 @@ public class Dot {
      */
     private String drawTransition(Transition t) {
         String text = t.isEpsilonTransition()
-                ? "EPSILON"
+                ? "ε"
                 : (t.isSubmachineCall()
                         ? t.getSubmachineCall()
                         : t.getSymbol().toString());
@@ -182,13 +182,13 @@ public class Dot {
         String functions = priorFunction.isEmpty() && postFunction.isEmpty()
                 ? ""
                 : (!priorFunction.isEmpty() && postFunction.isEmpty()
-                        ? priorFunction.concat(" *")
+                        ? priorFunction.concat(" •")
                         : (priorFunction.isEmpty()
                         && !postFunction.isEmpty()
-                                ? "* ".
+                                ? "• ".
                                 concat(postFunction)
                                 : priorFunction.
-                                concat(" * ").
+                                concat(" • ").
                                 concat(postFunction)));
 
         text = text.concat(
