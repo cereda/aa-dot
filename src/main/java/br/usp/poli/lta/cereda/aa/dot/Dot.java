@@ -83,10 +83,15 @@ public class Dot {
      * Realiza o mapeamento dos estados do autômato.
      * @param mapping Mapeamento do autômato.
      */
-    private void mapStates(Mapping mapping) {
+    private void mapStates(Mapping mapping, SubmachinesSet submachines) {
         for (Transition t : filter(mapping.getTransitions())) {
             addState(t.getSourceState());
             addState(t.getTargetState());
+        }
+        for (Submachine submachine : submachines.getSubmachines()) {
+            for (State state : submachine.getStates()) {
+                addState(state);
+            }
         }
     }
 
@@ -107,7 +112,7 @@ public class Dot {
      * Desenha a representação gráfica do autômato.
      */
     private void draw() {
-        mapStates(mapping);
+        mapStates(mapping, submachines);
         mapAcceptingStates(submachines);
         drawStates();
         updateSubmachines(submachines);
