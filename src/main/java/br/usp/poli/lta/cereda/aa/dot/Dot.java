@@ -82,6 +82,7 @@ public class Dot {
     /**
      * Realiza o mapeamento dos estados do autômato.
      * @param mapping Mapeamento do autômato.
+     * @param submachines Submáquinas.
      */
     private void mapStates(Mapping mapping, SubmachinesSet submachines) {
         for (Transition t : filter(mapping.getTransitions())) {
